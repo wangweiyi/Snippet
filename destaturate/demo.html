@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Desaturation Demo</title>
+	<style>
+		* {margin: 0; padding: 0; list-style: none;}
+		.container {width: 80%; margin: 0 auto;}
+
+		h1 {margin: 10px 0 20px; font-size: 28px; line-height: 40px;}
+		
+		li {float: left;}
+
+		.tip {margin-bottom: 10px; font-size: 14px; font-weight: normal;}
+		.tip li {margin-right: 10px; width: 90px;}
+		.tip i {display: inline-block; margin: 0 5px; width: 10px; height: 10px;}
+		.tip i.ok {background: #7b4;}
+		.tip i.fail {background: #f30;}
+
+		.env {margin-bottom: 20px;}
+
+		h2 {height: 3em; font-weight: normal; font-size: 16px; overflow: hidden;}
+		h2 em {margin-right: 5px; font-weight: bold; font-size: 18px; color: blue;}
+		h2 .ok {color: #7B4;}
+		h2 .fail {color: #F30;}
+
+		h1:after, ul:after {clear: both; display: block; content: ''; line-height: 0; font-size: 0; visibility: hidden;}
+		li {width: 45%; margin-right: 5%; margin-bottom: 20px;}
+		li img {width: 60%;}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Desaturation Demo</h1>
+
+		<p class="tip">兼容数据取自<a href="http://caniuse.com/#search=filter" target="_blank">caniuse.com</a>：<i class="ok"></i>亲测有效<i class="fail"></i>亲测无效(不知是否写法有问题，了解内幕的麻烦告知)</p>
+		<p class="env">测试版本：ff36, chrome40, ie7~11；（其它版本未测, 有环境并测试过的亲们还请告知）</p>
+		<ul>
+			<li>
+				<h2><em>ieFilter:</em> <span class="ok">IE6~9</span></h2>
+				<img class="desaturate" data-effect="ieFilter" src="zx.jpg" alt="演员张鑫" />
+			</li>
+			<li>
+				<h2><em>svgFilter:</em> <span class="fail">ie10+</span>, <span class="ok">ff3+</span>, <span class="fail">chrome8+</span>，opera10.1+, safari6+, iOS-safari6.1+, android4.4+</h2>
+				<img class="desaturate" data-effect="svgFilter" src="zx.jpg" alt="演员张鑫" />
+			</li>
+			<li>
+				<h2><em>canvas:</em> <span class="ok">ie9+</span>, <span class="ok">ff2+</span>, <span class="ok">chrome4+</span>, opera10.1+, safari3.1+, iOS-safari3.2+, android2.1+</h2>
+				<img class="desaturate" data-effect="canvas" data-width="550" data-height="412" src="zx.jpg" alt="演员张鑫" />
+			</li>
+			<li>
+				<h2><em>css3Filter:</em> <span class="ok">ff35+</span>, <span class="ok">chrome18+</span>(-webkit-), safari6+(-webkit-), iOS-safari6.1+(-webkit-), android4.4+(-webkit-) </h2>
+				<img class="desaturate" data-effect="css3Filter" src="zx.jpg" alt="演员张鑫" />
+			</li>
+		</ul>
+	</div>
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="cross-browser-desaturate.js"></script>
+	<script>
+		$('img.desaturate').each(function(i, img) {
+			window.Desaturate[img.getAttribute('data-effect')](img);
+		});
+
+	</script>
+</body>
+</html>
