@@ -18,9 +18,9 @@
 		//FF35+
 		css3Filter : function(img) {
 			$(img).css({
-				'-webkit-filter': 'grayscale(1)'
+				'-webkit-filter': 'grayscale(100%)',
+				'filter': 'grayscale(100%)'
 			});
-			alert(2)
 		},
 
 		//IE6~9

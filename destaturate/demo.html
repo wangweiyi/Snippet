@@ -34,7 +34,7 @@
 		<h1>Desaturation Demo</h1>
 
 		<p class="tip">兼容数据取自<a href="http://caniuse.com/#search=filter" target="_blank">caniuse.com</a>：<i class="ok"></i>亲测有效<i class="fail"></i>亲测无效(不知是否写法有问题，了解内幕的麻烦告知)</p>
-		<p class="env">测试版本：ff36, chrome40, ie7~11；（其它版本未测, 有环境并测试过的亲们还请告知）</p>
+		<p class="env">测试版本：ff36, chrome40, ie7~11, iOS-safari8.1.3；（其它版本未测, 有环境并测试过的亲们还请告知）</p>
 		<ul>
 			<li>
 				<h2><em>ieFilter:</em> <span class="ok">IE6~9</span></h2>
@@ -57,10 +57,11 @@
 	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script src="cross-browser-desaturate.js"></script>
 	<script>
-		$('img.desaturate').each(function(i, img) {
-			window.Desaturate[img.getAttribute('data-effect')](img);
+		$(function() {
+			$('img.desaturate').each(function(i, img) {
+				window.Desaturate[img.getAttribute('data-effect')](img);
+			});
 		});
-
 	</script>
 </body>
 </html>
